@@ -1,0 +1,29 @@
+#Bu kod parcasinda kullanicidan alinan bir sayiya gore parolanin rakamlarinin birbirinden fakli
+#olma olasiligi hesaplanmistir
+
+#Faktoriyel fonksiyonu
+def faktoriyel(x):
+    x = int(x)
+    faktoriyel_sonuc = 1
+    for i in range(1, x + 1):
+        faktoriyel_sonuc *= i
+    return faktoriyel_sonuc
+
+#Permutasyon fonksiyonu
+def permutasyon(x, y):
+    permutasyon_sonuc = faktoriyel(x) / faktoriyel(x - y)
+    return permutasyon_sonuc
+
+
+print("\n\n0 dan 9 a kadar olan rakamlardan olusan N haneli sifrenin farklı rakamlardan olusma olasiligi hesaplama...")
+n = float(input("Istenilen parola icin hane sayisini giriniz: "))
+
+#Bu kisimda basamak sayisi rakam sayisindan fazla olmasi durumudur ve olasiligi
+while n > 10:
+    print("\nHane sayisi rakam adetinden fazla oldugu icin sarti saglamayacaktir.")
+    print("\nBu durumda en az 1 rakam ayni olusacaktir.")
+
+    n = int(input("Hesaplamak icin parola hanesini tekrar giriniz: "))
+
+#Olasilik hesabi icin 10'un n'lisini permutasyonunu ornek uzaya bolmek satriyla hesaplanmistir.
+print("\n Islem Sonucu: ", (permutasyon(10, n) / 10 ** n))
