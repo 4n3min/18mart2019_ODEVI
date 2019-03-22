@@ -1,0 +1,26 @@
+#175172011 M.Emin ELLU
+
+#Faktoriyel fonksiyonu
+def faktoriyel(x):
+	x= int(x)
+	faktoriyel_sonuc=1
+	for i in range(1,x+1):
+		faktoriyel_sonuc*=i
+	return faktoriyel_sonuc
+
+#Kombinasyon fonksiyomu
+def kombinasyon(x,y):
+    kombinasyon_sonuc=faktoriyel(x)/(faktoriyel(y)*faktoriyel(x-y))
+    return kombinasyon_sonuc
+
+#ornek soru
+print("Bir torbada 3 mavi, 4 kirmizi, 5 yesil top vardir. \n Torbadan 3 top cekildiginde ucununde farkli renkte olma olasiligi:\n")
+
+#Degerlerin atanmasi
+mavi = 3.0
+kirmizi = 4.0
+yesil = 5.0
+toplam = mavi + yesil + kirmizi
+
+#Her bir topun kombinasyonlarin capriminin toplam duruma bolunmesi ile olusan olasiligin hesaplanmasi
+print("Islem sonucu:",float(kombinasyon(float(mavi),1)*kombinasyon(float(kirmizi),1)*kombinasyon(float(yesil),1)/kombinasyon(float(toplam),3)))
